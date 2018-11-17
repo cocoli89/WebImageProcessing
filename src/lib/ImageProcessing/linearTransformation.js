@@ -1,5 +1,5 @@
 import RgbaImageBuffer from "../RgbaImageBuffer";
-import {ImageOperationException} from "../Exceptions";
+import { LinearTransformationException } from "../Exceptions";
 
 /**
  * Transforms the given image according to the linear sections
@@ -15,34 +15,29 @@ export const linearTransformation = (
   points
 ) => {
   if (points.length < 2)
-    throw new ImageOperationException(
-      "LinearTransformationException",
+    throw new LinearTransformationException(
       "Linear transformation needs at least 2 points"
     );
   
   for (let i = 0; i < points.length - 1; ++i) {
     if (points[i].x > points[i + 1].x)
-      throw new ImageOperationException(
-        "LinearTransformationException",
+      throw new LinearTransformationException(
         "Points must be ordered according to the x coordinate value"
       );
     
     if (points[i].x === points[i + 1].x)
-      throw new ImageOperationException(
-        "LinearTransformationException",
+      throw new LinearTransformationException(
         "Different points should not have the same x coordinate value"
       );
   }
   
   if (points[0].x > 0)
-    throw new ImageOperationException(
-      "LinearTransformationException",
+    throw new LinearTransformationException(
       "X coordinate value of the first point should be less or equal to 0"
     );
 
   if (points[points.length - 1].x < 255)
-    throw new ImageOperationException(
-      "LinearTransformationException",
+    throw new LinearTransformationException(
       "X coordinate value of the last point should be greater or equal to 255"
     );
 

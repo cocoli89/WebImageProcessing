@@ -7,9 +7,6 @@ import Histogram from "../../lib/Histogram";
 import { imageToGrayscale } from "../../lib/ImageProcessing/grayscale";
 import { linearTransformation } from "../../lib/ImageProcessing/linearTransformation";
 import { brightnessAndContrastAdjustment } from "../../lib/ImageProcessing/brightnessAndContrastAdjustment";
-import { gammaCorrection } from "../../lib/ImageProcessing/gammaCorrection";
-import { imagesDifference} from "../../lib/ImageProcessing/imagesDifference";
-import { changesDetection} from "../../lib/ImageProcessing/changesDetection";
 import * as ImageHelper from "../../lib/imageHelper";
 import * as GridLayoutHelper from "../../lib/grid/calculateLayout";
 import RgbaImageBuffer from "../../lib/RgbaImageBuffer";
@@ -203,16 +200,15 @@ class App extends Component {
     }
   };
 
-  currentImageLinearTransformation = () => {
+  currentImageLinearTransformation = (coordinates) => {
     const { type, index } = this.state.selectedGridItem;
 
     if (type !== "image" || index < 0) {
       // Handle error
       console.error("Error");
     } else {
-      let points = [{x: 0, y: 0}, {x: 50, y: 100}, {x: 255, y: 255}];
       this.addNewImage(
-        linearTransformation(this.state.imagesInfos[index].imageBuffer, points)
+        linearTransformation(this.state.imagesInfos[index].imageBuffer, coordinates)
       );
     }
   };
@@ -238,57 +234,6 @@ class App extends Component {
     }
   }
 
-  currentImageGammaCorrection = () => {
-    const { type, index } = this.state.selectedGridItem;
-
-    if (type !== "image" || index < 0) {
-      // Handle error
-      console.error("Error");
-    } else {
-      let gammaValue = 4;
-      this.addNewImage(
-        gammaCorrection(
-          this.state.imagesInfos[index].imageBuffer,
-          gammaValue
-        )
-      );
-    }
-  }
-
-  applyImagesDifference = () => {
-    const { type, index } = this.state.selectedGridItem;
-
-    if (type !== "image" || index < 0) {
-      // Handle error
-      console.error("Error");
-    } else {
-      this.addNewImage(
-        imagesDifference(
-          this.state.imagesInfos[index].imageBuffer,
-          this.state.imagesInfos[this.state.imagesInfos.length - 1].imageBuffer
-        )
-      );
-    }
-  }
-
-  applyChangesDetection = () => {
-    const { type, index } = this.state.selectedGridItem;
-
-    if (type !== "image" || index < 0) {
-      // Handle error
-      console.error("Error");
-    } else {
-      this.addNewImage(
-        changesDetection(
-          this.state.imagesInfos[index].imageBuffer,
-          this.state.imagesInfos[this.state.imagesInfos.length - 1].imageBuffer,
-          40,
-          {r:0, g:0, b:255}
-        )
-      );
-    }
-  }
-
   render() {
     return (
       <div>
@@ -299,10 +244,7 @@ class App extends Component {
             onDownload={this.downloadCurrentImage}
             onGrayscale={this.currentImageToGrayscale}
             linearTransformation={this.currentImageLinearTransformation}
-            brightnessAndContrastAdjustment={this.currentImageBrightnessAndContrastAdjustment}
-            gammaCorrection={this.currentImageGammaCorrection}
-            imagesDifference={this.applyImagesDifference}
-            changesDetection={this.applyChangesDetection}
+            brightnessAndContrastAdjustment={this.currentImageBrightnessAndContrastAdjustment} 
           />
           <main className="main">{this.getGridComponent()}</main>
           <footer>{this.getDisplayForPixelUnderMouse()}</footer>
