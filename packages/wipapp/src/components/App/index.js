@@ -19,10 +19,10 @@ class App extends Component {
   };
 
   /** Returns a callback that updates the region of the asked image info */
-  onImageRegionSelection = index => ({ originCoords, endCoords }) => {
+  onImageRegionSelection = index => ({ mouseDownCoords, mouseUpCoords }) => {
     const { top, left, right, bottom } = calculateRect(
-      originCoords,
-      endCoords
+      mouseDownCoords,
+      mouseUpCoords
     );
 
     const newRegion = {
