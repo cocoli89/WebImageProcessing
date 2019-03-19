@@ -10,6 +10,7 @@ import SelectionOverlay from "../Overlays/SelectionOverlay";
 import LineOverlay from "../Overlays/LineOverlay";
 import { calculateRect } from "../../lib/coordinates";
 import ProfilesComponent from "../ProfilesComponent";
+import SelectionToolbar from "../Toolbar/SelectionToolbar";
 
 class App extends Component {
   /** Callback that updates the pixel value and coordinates currently under the
@@ -19,10 +20,10 @@ class App extends Component {
   };
 
   /** Returns a callback that updates the region of the asked image info */
-  onImageRegionSelection = index => ({ mouseDownCoords, mouseUpCoords }) => {
+  onImageRegionSelection = index => ({ originCoords, endCoords }) => {
     const { top, left, right, bottom } = calculateRect(
-      mouseDownCoords,
-      mouseUpCoords
+      originCoords,
+      endCoords
     );
 
     const newRegion = {
@@ -59,6 +60,7 @@ class App extends Component {
       <div>
         <div className="app-container">
           <AppToolbar />
+          <SelectionToolbar />
           <main className="main">
             <div className="main__wrapper">{this.getGridComponent()}</div>
           </main>
