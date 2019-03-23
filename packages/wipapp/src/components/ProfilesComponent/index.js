@@ -2,6 +2,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import ProfileComponent from "../ProfileComponent";
 
+
 export default class ProfilesComponent extends React.Component {
   state = {
     currentTab: 0,
@@ -9,8 +10,7 @@ export default class ProfilesComponent extends React.Component {
   };
 
   updateCurrentTab = (_, newTab) => this.setState({ currentTab: newTab });
-  updateCurrentChannel = (_, newChannel) =>
-    this.setState({ currentChannel: newChannel });
+  updateCurrentChannel = (_, newChannel) => this.setState({ currentChannel: newChannel });
 
   render() {
     const { currentTab, currentChannel } = this.state;
@@ -56,23 +56,25 @@ export default class ProfilesComponent extends React.Component {
             justifyContent: "center"
           }}
         >
-          {Object.keys(profileValues).map(key => {
-            return (
-              <Button
-                style={
-                  currentChannel === key
-                    ? {
-                        boxShadow: `0px 4px 6px -5px ${key}`
-                      }
-                    : {}
-                }
-                onClick={e => this.updateCurrentChannel(e, key)}
-                key={key}
-              >
-                {key}
-              </Button>
-            );
-          })}
+          {
+            Object.keys(profileValues).map( key => {
+              return (
+                <Button
+                  style={
+                    currentChannel === key
+                      ? {
+                          boxShadow: `0px 4px 6px -5px ${key}`
+                        }
+                      : {}
+                  }
+                  onClick={e => this.updateCurrentChannel(e, key)}
+                  key={key}
+                >
+                  {key}
+                </Button>
+              );
+            })
+          }
         </div>
         <div
           style={{
@@ -86,14 +88,14 @@ export default class ProfilesComponent extends React.Component {
         >
           {currentTab === 0 && (
             <ProfileComponent
-              profileValues={profileValues[currentChannel]}
-              channel={currentChannel}
+                profileValues={profileValues[currentChannel]}
+                channel={currentChannel}
             />
           )}
           {currentTab === 1 && (
             <ProfileComponent
-              profileValues={firstDerivativeProfileValues[currentChannel]}
-              channel={currentChannel}
+                profileValues={firstDerivativeProfileValues[currentChannel]}
+                channel={currentChannel}
             />
           )}
         </div>
