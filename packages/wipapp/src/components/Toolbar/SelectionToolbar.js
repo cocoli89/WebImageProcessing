@@ -4,7 +4,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import CropSquareIcon from "@material-ui/icons/CropSquare";
 import EditIcon from "@material-ui/icons/Edit";
-import "./SelectionToolbar.css";
 
 class SelectionToolbar extends React.Component {
   render() {
@@ -14,7 +13,14 @@ class SelectionToolbar extends React.Component {
     } = this.props.appStore;
 
     return (
-      <Toolbar className="selection-toolbar">
+      <Toolbar
+        style={{
+          backgroundColor: "white",
+          color: "#3f51b5",
+          display: "flex",
+          zIndex: "-1"
+        }}
+      >
         <Button
           style={
             imageSelectionMehod !== "selection"
