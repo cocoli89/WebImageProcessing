@@ -69,7 +69,7 @@ Before any pull request, please check the [Contributing guidelines](./CONTRIBUTI
 
 ## :mailbox_with_mail: Authors
 
-- Cocoli Han &lt;[AlberTJ97](https://github.com/cocoli89)&gt;
+- Cocoli Han &lt;[cocoli89](https://github.com/cocoli89)&gt;
 - Daute Rodríguez Rodríguez &lt;[DauteRR](https://github.com/DauteRR)&gt;
 - Carlos Domínguez García &lt;[carlosdg](https://github.com/carlosdg)&gt;
 
