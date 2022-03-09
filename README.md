@@ -61,15 +61,15 @@ You can contribute with anything, from letting us know of some broken English wi
 
 Before submitting a pull request please file an issue, we may be working on the same topic and with an issue we can let you know so you don't waste your time 😄
 
-- [Report a bug 🐞 at this link](https://github.com/carlosdg/wip/issues/new?assignees=&labels=bug&template=bug-report---.md&title=%5BBUG%5D+Issue+Title)
-- [Request a feature 💡at this link](https://github.com/carlosdg/wip/issues/new?assignees=&labels=enhancement&template=feature-request---.md&title=%5BFeat%5D+Issue+Title)
-- For any other topic or to ask a question you can [file a regular issue at this link](https://github.com/carlosdg/wip/issues/new)
+- [Report a bug 🐞 at this link](https://github.com/cocoli89/WebImageProcessing/issues/new?assignees=&labels=bug&template=bug-report---.md&title=%5BBUG%5D+Issue+Title)
+- [Request a feature 💡at this link](https://github.com/cocoli89/WebImageProcessing/issues/new?assignees=&labels=enhancement&template=feature-request---.md&title=%5BFeat%5D+Issue+Title)
+- For any other topic or to ask a question you can [file a regular issue at this link](https://github.com/cocoli89/WebImageProcessing/issues/new)
 
 Before any pull request, please check the [Contributing guidelines](./CONTRIBUTING.md) to know how to setup the project (install dependencies, run tests, etc)
 
 ## :mailbox_with_mail: Authors
 
-- Alberto Jesús González Álvarez &lt;[AlberTJ97](https://github.com/AlberTJ97)&gt;
+- Cocoli Han &lt;[AlberTJ97](https://github.com/cocoli89)&gt;
 - Daute Rodríguez Rodríguez &lt;[DauteRR](https://github.com/DauteRR)&gt;
 - Carlos Domínguez García &lt;[carlosdg](https://github.com/carlosdg)&gt;
 
